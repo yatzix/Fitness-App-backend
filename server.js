@@ -1,7 +1,7 @@
 // Dependencies
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const morgan = require('morgan');
 
 // Initialize express app
@@ -14,21 +14,21 @@ require('./config/database');
 // Mount middleware
 app.use(express.json()); // Creates req.body
 app.use(morgan('dev'));
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 
 // Use middleware to help express discover the favicon file
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static(path.join(__dirname, 'build')));
 
 // Mount Routes
-app.use(require('./config/checkToken'));
+// app.use(require('./config/checkToken'));
 
 // API routes
-app.use('/api/users', require('./routes/api/users'));
+// app.use('/api/users', require('./routes/api/users'));
 
 // "Catch all route" - used to always serve index.html
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.get('/*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 
 // Tell the App to Listen
 const port = process.env.PORT || 3001;
