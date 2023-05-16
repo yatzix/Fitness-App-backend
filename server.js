@@ -25,6 +25,8 @@ app.use(morgan("dev"));
 // API routes
 app.use("/api/users", require("./routes/api/users"));
 
+// app.get/workouts
+
 // "Catch all route" - used to always serve index.html
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
