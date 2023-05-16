@@ -23,6 +23,7 @@ app.use(morgan("dev"));
 // app.use(require("./config/checkToken"));
 
 // API routes
+app.use("/api/data", require("./routes/api/data"));
 app.use("/api/users", require("./routes/api/users"));
 
 // app.get/workouts
