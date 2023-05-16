@@ -23,8 +23,8 @@ app.use(morgan("dev"));
 // app.use(require("./config/checkToken"));
 
 // API routes
-app.use("/api/users", require("./routes/api/users"));
 app.use("/api/data", require("./routes/api/data"));
+app.use("/api/users", require("./routes/api/users"));
 // "Catch all route" - used to always serve index.html
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));

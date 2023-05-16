@@ -2,6 +2,7 @@ const User = require("../../models/user");
 
 async function create(req, res) {
   try {
+    console.log("req", req);
     const foundUser = await User.findById(req.params.id);
     console.log(foundUser);
     foundUser.workouts.push(req.body);
