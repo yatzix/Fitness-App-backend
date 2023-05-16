@@ -3,6 +3,12 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 6;
 
+const workoutSchema = new Schema({
+  exercise: {
+    type: String,
+  },
+});
+
 const userSchema = new Schema(
   {
     name: {
@@ -22,6 +28,7 @@ const userSchema = new Schema(
       minLength: 3,
       required: true,
     },
+    workouts: [workoutSchema],
   },
   {
     timestamps: true,
