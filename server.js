@@ -26,13 +26,7 @@ app.use(require("./config/checkToken"));
 
 // API routes
 app.use("/api/users", require("./routes/api/users"));
-<<<<<<< HEAD
 app.use("/api/data", require("./routes/api/data"));
-=======
-
-// app.get/workouts
-
->>>>>>> 87187b775c8a8b070779faf5f73d5a36507eb0f2
 // "Catch all route" - used to always serve index.html
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
