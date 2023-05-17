@@ -3,28 +3,30 @@ const express = require("express");
 const path = require("path");
 // const favicon = require('serve-favicon');
 const morgan = require("morgan");
+// const bodyParser = require("body-parser");
 
 // Initialize express app
 const app = express();
-
+// const jsonParser = bodyParser.json();
 // Configure settings
 require("dotenv").config();
 require("./config/database");
 
 // Mount middleware
 app.use(express.json()); // Creates req.body
+// app.use(bodyParser.json());
 app.use(morgan("dev"));
-// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 
 // Use middleware to help express discover the favicon file
 // app.use(express.static(path.join(__dirname, "build")));
 
 // Mount Routes
-// app.use(require("./config/checkToken"));
+app.use(require("./config/checkToken"));
 
 // API routes
-app.use("/api/data", require("./routes/api/data"));
 app.use("/api/users", require("./routes/api/users"));
+app.use("/api/data", require("./routes/api/data"));
 // "Catch all route" - used to always serve index.html
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
