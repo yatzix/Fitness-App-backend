@@ -1,20 +1,18 @@
 // Dependencies
 const express = require("express");
 const path = require("path");
-// const favicon = require('serve-favicon');
 const morgan = require("morgan");
-// const bodyParser = require("body-parser");
+// const favicon = require('serve-favicon');
 
 // Initialize express app
 const app = express();
-// const jsonParser = bodyParser.json();
+
 // Configure settings
 require("dotenv").config();
 require("./config/database");
 
 // Mount middleware
 app.use(express.json()); // Creates req.body
-// app.use(bodyParser.json());
 app.use(morgan("dev"));
 // app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 
