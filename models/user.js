@@ -3,11 +3,29 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 6;
 
-const workoutSchema = new Schema({
-  exercise: {
-    type: String,
+const workoutSchema = new Schema(
+  {
+    name: {
+      type: String,
+    },
+    type: {
+      type: String,
+    },
+    muscle: {
+      type: String,
+    },
+    equipment: {
+      type: String,
+    },
+    difficulty: {
+      type: String,
+    },
+    instructions: {
+      type: String,
+    },
   },
-});
+  { timestamps: true }
+);
 
 const userSchema = new Schema(
   {
