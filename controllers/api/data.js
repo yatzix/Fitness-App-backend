@@ -9,6 +9,8 @@ async function create(req, res) {
     console.log("user found", foundUser);
     foundUser.workouts.push(req.body);
     await foundUser.save();
+
+    res.status(200).json({ message: "Workout added successfully", foundUser });
   } catch (error) {
     console.error("Error saving data:", error);
     res.sendStatus(500);
