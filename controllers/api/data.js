@@ -1,6 +1,4 @@
 const User = require("../../models/user");
-// const bodyParser = require("body-parser");
-// const jsonParser = bodyParser.json();
 
 async function create(req, res) {
   try {
