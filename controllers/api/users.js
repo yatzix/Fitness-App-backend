@@ -2,9 +2,6 @@
 const User = require("../../models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-router.use(express.json());
-
-const router = express.Router();
 
 async function create(req, res) {
   try {
