@@ -29,7 +29,7 @@ async function login(req, res) {
     if (!user) return res.status(400).json({ error: "invalid request" });
 
     const isMatch = await bcrypt.compare(req.body.password, user.password);
-    if (!isMatch) return res.status(400).json({ error: "invalid credentials" });
+    if (!isMatch) return res.status(400).json({ error: "invalid data" });
 
     const token = createJWT(user);
     res.json(token);
