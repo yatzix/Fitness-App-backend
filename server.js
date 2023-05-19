@@ -5,6 +5,8 @@ const morgan = require("morgan");
 const router = require("./routes/api/users");
 // const favicon = require("serve-favicon");
 
+const Data = require("./models/user");
+
 // Initialize express app
 const app = express();
 
@@ -33,6 +35,19 @@ app.get("/*", (req, res) => {
 
 app.get("/test", (req, res) => {
   res.send("testing 123 kjfkdjfd");
+});
+
+app.get("/api/data", async (req, res) => {
+  try {
+    console.log("/api/data"); // Add console.log statement to check if the route is accessed
+    // Fetch data from the Data model or schema
+    const data = await Data.find({});
+    console.log("Retrieved data:", data); // Log the retrieved data
+    res.json(data);
+  } catch (error) {
+    console.error("Error retrieving data:", error); // Log the error message
+    res.status(400).json(error);
+  }
 });
 
 // app.get("/api/users", async (req, res) => {
