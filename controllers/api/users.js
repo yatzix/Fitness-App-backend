@@ -2,6 +2,9 @@
 const User = require("../../models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+router.use(express.json());
+
+const router = express.Router();
 
 async function create(req, res) {
   try {
@@ -25,7 +28,7 @@ function createJWT(user) {
 
 async function login(req, res) {
   try {
-    const user = await User.findOne({ email: "legday@email.com" });
+    const user = await User.findOne({ email: req.body.email });
     console.log(user);
     if (!user) return res.status(400).json({ error: "invalid request" });
 
