@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // Database Connection
-mongoose.connect(process.env.DATABASE_URL);
+mongoose.connect(process.env.MONGODB_URI);
 
 // Shortcut variable to the Connection Object
 const db = mongoose.connection;

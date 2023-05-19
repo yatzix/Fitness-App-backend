@@ -3,9 +3,12 @@
 const express = require("express");
 const router = express.Router();
 const usersCtrl = require("../../controllers/api/users");
+const { raw } = require("body-parser");
 // require authorization middleware
 // const ensureLoggedIn = require("../../config/ensureLoggedIn");
-
+router.get("/test", (req, res) => {
+  res.send("testing");
+});
 // POST /api/users
 router.post("/", usersCtrl.create);
 // router.post("/data", usersCtrl.create);

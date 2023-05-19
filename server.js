@@ -2,7 +2,7 @@
 const express = require("express");
 const path = require("path");
 const morgan = require("morgan");
-// const favicon = require('serve-favicon');
+// const favicon = require("serve-favicon");
 
 // Initialize express app
 const app = express();
@@ -31,7 +31,8 @@ app.get("/*", (req, res) => {
 });
 
 // Tell the App to Listen
-const port = process.env.PORT || 3001;
-app.listen(port, function () {
-  console.log(`Express app is running on port:${port}`);
-});
+// const port = process.env.PORT || 3001;
+// app.listen(port, function () {
+//   console.log(`Express app is running on port:${port}`);
+// });
+app.listen(process.env.PORT);
