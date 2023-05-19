@@ -7,10 +7,10 @@ const { raw } = require("body-parser");
 // require authorization middleware
 // const ensureLoggedIn = require("../../config/ensureLoggedIn");
 router.get("/test", (req, res) => {
-  res.send("testing");
+  res.send("testing233e");
 });
 
-router.get("/", usersCtrl.login);
+// router.get("/", usersCtrl.login);
 // POST /api/users
 router.post("/", usersCtrl.create);
 // router.post("/data", usersCtrl.create);
