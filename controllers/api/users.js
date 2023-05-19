@@ -26,6 +26,21 @@ function createJWT(user) {
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email });
+    if (!user) return res.status(400).json({ error: "invalid request" });
+
+    const isMatch = await bcrypt.compare(req.body.password, user.password);
+    if (!isMatch) return res.status(400).json({ error: "invalid credentials" });
+
+    const token = createJWT(user);
+    res.json(token);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+}
+
+async function login(req, res) {
+  try {
+    const user = await User.findOne({ email: req.body.email });
     if (!user) return res.status(400).json({ error: "invalid credentials" });
 
     const isMatch = await bcrypt.compare(req.body.password, user.password);
