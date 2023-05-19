@@ -21,9 +21,11 @@ const workoutSchema = new Schema(
       type: String,
     },
     instructions: {
-      type: String
-    }
-}, { timestamps: true });
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
 
 const userSchema = new Schema(
   {
