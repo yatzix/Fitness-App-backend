@@ -26,6 +26,7 @@ function createJWT(user) {
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: "legday@email.com" });
+    console.log(user);
     if (!user) return res.status(400).json({ error: "invalid request" });
 
     const isMatch = await bcrypt.compare(req.body.password, user.password);
