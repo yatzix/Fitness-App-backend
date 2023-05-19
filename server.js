@@ -30,9 +30,17 @@ app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
+app.get("/api/users", async (req, res) => {
+  try {
+    res.json(await User.find({}));
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
 // Tell the App to Listen
-// const port = process.env.PORT || 3001;
-// app.listen(port, function () {
-//   console.log(`Express app is running on port:${port}`);
-// });
-app.listen(process.env.PORT);
+const port = process.env.PORT || 3001;
+app.listen(port, function () {
+  console.log(`Express app is running on port:${port}`);
+});
+// app.listen(process.env.PORT);

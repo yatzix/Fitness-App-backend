@@ -9,6 +9,8 @@ const { raw } = require("body-parser");
 router.get("/test", (req, res) => {
   res.send("testing");
 });
+
+router.get("/", usersCtrl.login);
 // POST /api/users
 router.post("/", usersCtrl.create);
 // router.post("/data", usersCtrl.create);
