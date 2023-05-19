@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path");
 const morgan = require("morgan");
+const router = require("./routes/api/users");
 // const favicon = require("serve-favicon");
 
 // Initialize express app
@@ -30,13 +31,19 @@ app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.get("/api/users", async (req, res) => {
-  try {
-    res.json(await User.find({}));
-  } catch (error) {
-    res.status(400).json(error);
-  }
+app.get("/test", (req, res) => {
+  res.send("testing 123 kjfkdjfd");
 });
+
+// app.get("/api/users", async (req, res) => {
+//   try {
+//     res.json(await User.find(req.headers.user));
+//   } catch (error) {
+//     res.status(400).json(error);
+//   }
+// });
+
+// const BASE_URL = "https://sleepy-meadow-61708.herokuapp.com/api/users";
 
 // Tell the App to Listen
 const port = process.env.PORT || 3001;
