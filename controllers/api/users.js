@@ -38,20 +38,20 @@ async function login(req, res) {
   }
 }
 
-async function login(req, res) {
-  try {
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) return res.status(400).json({ error: "invalid credentials" });
+// async function login(req, res) {
+//   try {
+//     const user = await User.findOne({ email: req.body.email });
+//     if (!user) return res.status(400).json({ error: "invalid credentials" });
 
-    const isMatch = await bcrypt.compare(req.body.password, user.password);
-    if (!isMatch) return res.status(400).json({ error: "invalid credentials" });
+//     const isMatch = await bcrypt.compare(req.body.password, user.password);
+//     if (!isMatch) return res.status(400).json({ error: "invalid credentials" });
 
-    const token = createJWT(user);
-    res.json(token);
-  } catch (error) {
-    res.status(400).json(error);
-  }
-}
+//     const token = createJWT(user);
+//     res.json(token);
+//   } catch (error) {
+//     res.status(400).json(error);
+//   }
+// }
 
 function checkToken(req, res) {
   //req.user will always be there for you when a token is sent
