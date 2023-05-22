@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const morgan = require("morgan");
 const router = require("./routes/api/users");
+const cors = require("cors");
 // const favicon = require("serve-favicon");
 
 // Initialize express app
@@ -19,7 +20,7 @@ app.use(morgan("dev"));
 
 // Use middleware to help express discover the favicon file
 // app.use(express.static(path.join(__dirname, "build")));
-
+app.use(cors());
 // Mount Routes
 app.use(require("./config/checkToken"));
 
