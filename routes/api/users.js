@@ -12,10 +12,11 @@ router.get("/test", (req, res) => {
 router.get("/test", (req, res) => {
   res.send("testing233e");
 });
-router.get("/data", async (req, res) => {
+router.get("/:muscle", async (req, res) => {
   try {
     const api_key = process.env.REACT_APP_API_KEY;
-    const api_url = "https://api.api-ninjas.com/v1/exercises?muscle=biceps";
+    const api_url =
+      "https://api.api-ninjas.com/v1/exercises?muscle=" + req.params.muscle;
     const response = await fetch(api_url, {
       headers: {
         "X-Api-Key": api_key,
