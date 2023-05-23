@@ -12,7 +12,26 @@ router.get("/test", (req, res) => {
 router.get("/test", (req, res) => {
   res.send("testing233e");
 });
+router.get("/data", async (req, res) => {
+  try {
+    const api_key = process.env.REACT_APP_API_KEY;
+    const api_url = "https://api.api-ninjas.com/v1/exercises?muscle=biceps";
+    const response = await fetch(api_url, {
+      headers: {
+        "X-Api-Key": api_key,
+      },
+    });
 
+    if (response.ok) {
+      const responseData = await response.json();
+      res.send(responseData);
+    } else {
+      throw new Error("Request failed");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+});
 // router.get("/", usersCtrl.login);
 // POST /api/users
 router.post("/", usersCtrl.create);
